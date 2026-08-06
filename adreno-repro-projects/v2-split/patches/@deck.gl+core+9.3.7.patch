@@ -1,0 +1,14 @@
+diff --git a/node_modules/@deck.gl/core/dist/shaderlib/misc/geometry.js b/node_modules/@deck.gl/core/dist/shaderlib/misc/geometry.js
+index ae387e4..03999df 100644
+--- a/node_modules/@deck.gl/core/dist/shaderlib/misc/geometry.js
++++ b/node_modules/@deck.gl/core/dist/shaderlib/misc/geometry.js
+@@ -57,7 +57,8 @@ ${defines}
+ 
+ struct FragmentGeometry {
+   vec2 uv;
+-} geometry;
++};
++FragmentGeometry geometry;
+ 
+ float smoothedge(float edge, float x) {
+   return smoothstep(edge - SMOOTH_EDGE_RADIUS, edge + SMOOTH_EDGE_RADIUS, x);

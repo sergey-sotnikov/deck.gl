@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Adreno repro - v2 - fix #10301 (split FragmentGeometry struct)</title>
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; background: #fff; color: #000; }
+  .note { padding: 8px 12px; font-size: 13px; background: #f0f2f5; line-height: 1.4; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 46vh 46vh; gap: 2px; }
+  .cell { position: relative; background: #000; overflow: hidden; }
+  .cell > .cap { position: absolute; top: 4px; left: 6px; z-index: 2; font-size: 12px; color: #fff; background: rgba(0,0,0,.55); padding: 2px 6px; border-radius: 4px; }
+  .cell > div.map { position: absolute; inset: 0; }
+</style>
+</head>
+<body>
+  <div class="note">
+    <b>v2 - fix #10301 (split FragmentGeometry struct)</b> - the <b>Scatterplot</b> control must always render. On a Qualcomm
+    <b>Adreno</b> GPU (Chrome/ANGLE) the HeatmapLayer and ScreenGridLayer fail to
+    compile without a fix. On a desktop GPU all four render (control only) - open
+    this on an Adreno phone to see the real result.
+  </div>
+  <div class="grid">
+    <div class="cell"><span class="cap">Scatterplot (control)</span><div class="map" id="ctrl"></div></div>
+    <div class="cell"><span class="cap">HeatmapLayer</span><div class="map" id="heat"></div></div>
+    <div class="cell"><span class="cap">ScreenGridLayer (gpu)</span><div class="map" id="grid-gpu"></div></div>
+    <div class="cell"><span class="cap">ScreenGridLayer (cpu)</span><div class="map" id="grid-cpu"></div></div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

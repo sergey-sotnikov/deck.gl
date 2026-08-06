@@ -1,0 +1,7 @@
+# scratch project used only to generate the patch-package patches
+_patchgen/
+
+# per-project install/build output
+node_modules/
+dist/
+_serve/
